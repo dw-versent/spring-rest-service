@@ -1,0 +1,6 @@
+Context
+Ruckus ZoneDirector's default protocol for Syslog events is UDP. TCP port is not supported on the Ruckus.
+Coinciding with that info, AWS's Elastic Load Balancer doesn't support UDP. Hence, the work-around was to
+set up a raspberry pi that listens on it's UDP 514 port (default port for UDP) for traffic directed from Ruckus, and have the
+Universal Splunk forwarder(also installed on the pi) monitor the directory where logs are saved
+and forward the logs to Splunk Enterprise(production instance).
